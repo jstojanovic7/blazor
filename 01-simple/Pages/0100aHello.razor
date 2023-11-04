@@ -1,0 +1,23 @@
+﻿@page "/0100aHello"
+
+
+<h1>Hello world</h1>
+<br/>
+<br />
+<pre>@message</pre>
+  
+@code {
+    private string message = "Miki Maus";
+
+    protected override async Task OnInitializedAsync()
+    {
+        int i = 2;
+        int j = 13;
+    
+        message = "" + (j/i) + Environment.NewLine;
+        int k1 = i * (j++);
+        int k2 = i * (++j);
+        message = "" + k1 + " " + k2 + Environment.NewLine;
+    }
+   
+}
