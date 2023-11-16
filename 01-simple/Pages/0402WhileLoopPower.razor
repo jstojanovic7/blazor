@@ -1,6 +1,6 @@
 ﻿@page "/0402WhileLoopPower"
 
-<PageTitle>Power</PageTitle>
+
 <h1>Power</h1>
 <br/>
 <table>
@@ -18,8 +18,8 @@
     </tr>
     <tr>
         <td style="text-align:center" colspan="2">
-            <button title="by forward counting" @onclick="PowerByCountForward">Power</button> &nbsp; 
-            <button title="by backward counting" @onclick="PowerByCountBackward">Power</button> &nbsp; 
+            <button title="Power 1" @onclick="PowerByCountForward">Power</button> &nbsp; 
+            <button title="Power 2" @onclick="PowerByCountBackward">Power</button> &nbsp; 
         </td>
     </tr>
     <tr>
@@ -31,7 +31,7 @@
 
 @code {
 
-    private double baseOne = 2.5;
+    private double baseOne = 3.2;
 
     private int exponent = 0;
 
