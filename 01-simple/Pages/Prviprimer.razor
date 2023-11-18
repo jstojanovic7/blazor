@@ -1,0 +1,37 @@
+﻿@page "/Prviprimer"
+
+<PageTitle>Prikaz intova</PageTitle>
+<h1>Prikaz intova</h1>
+<br/>
+<button @onclick="Execute">Do It!</button>
+<br/>
+Output:
+<br/>
+<div style="border:solid; border-color:black">
+  <pre>@message</pre>
+</div>
+
+@code {
+    private string message = "";
+
+   
+    string ElementsToString(int[] arr)
+    {
+        string res = "";
+        for (int i = arr.Length - 1; i>=0; i--)
+        {
+            res += arr[i] + ""; 
+        }        
+        return res;
+    }
+
+    private void Execute()
+    {
+        
+
+    int[] arr = { 24, 48, 96, 192, 36, 72, 144, 44, 123, 32 };
+        arr[2] = 76;
+        message += "arr: " + ElementsToString(arr) + Environment.NewLine;
+        Console.WriteLine(message);
+        }
+}
