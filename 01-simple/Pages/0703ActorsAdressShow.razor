@@ -1,6 +1,6 @@
-﻿@page "/0701ActorsShow"
+﻿@page "/0703ActorsAdressShow"
 
-@using DSS.Models;
+@using DSS.Models2;
 
 <PageTitle>Actors</PageTitle>
 <h1>Actors</h1>
@@ -9,14 +9,25 @@
     <tr>
         <td>First name</td>
         <td>Last name</td>
-        <td>IMDB score</td>
+        <td>Adress</td>
+        <td>IMDB</td>
+        <td>Oscar</td>
+        <td>Bafta</td>
+        <td>Bafta</td>
+        <td>Bafta</td>
     </tr>
     @foreach (Actor act in filmCrew)
     {
         <tr>
             <td>@act.FirstName</td>
             <td>@act.LastName</td>
+            <td>@act.Adress.Street <br/> 
+                @act.Adress.PostalCode @act.Adress.City <br/>
+                @act.Adress.State</td>
             <td>@act.ImdbMark</td>
+            <td>@act.NumberOfOscars</td>
+            <td>@act.NumberOfBaftas</td>
+            <td><button @onclick="Bragging">Bragging</button></td>
         </tr>
     }
 </table>
@@ -29,6 +40,8 @@
 }
 @code {
     private bool showResult = false;
+    
+    private string message = "";
 
     private double avgIMDB;
 
@@ -40,23 +53,34 @@
         {
             FirstName = "John",
             LastName = "Goodman",
-            ImdbMark = 9.7
+            ImdbMark = 9.7,
+            NumberOfOscars = 1,
+            Adress = new PostalAdress(){
+                Street = "Sunset Boulevard 34"
+            }
         };
         filmCrew[1] = new Actor()
         {
             LastName = "De Niro",
             ImdbMark = 9.4,
-            FirstName = "Robert"
+            FirstName = "Robert",
+            Adress = new PostalAdress()
         };
         filmCrew[2] = new Actor()
         {
             LastName = "Spacey",
             ImdbMark = 9.6,
-            FirstName = "Kevin"
+            FirstName = "Kevin",
+            Adress = new PostalAdress()
         };
        
     }
 
+    private void Bragging(){
+        message=filmCrew[0].Bragging()
+        }
+    }
+    
     private void AverageIMDB()
     {
         showResult = true;
